@@ -18,8 +18,8 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+  app.use(app.router);
 });
 
 app.configure('development', function(){
@@ -38,12 +38,12 @@ app.get('/create', routes.create);
 app.post('/create', routes.create_post); 
 
 // redirect
-app.get(/([a-zA-Z0-9]{6})/, function(req, res) {
+app.get(/([a-zA-Z0-9]{6})$/, function(req, res) {
     routes.redirect(req, res, req.params[0]);
 });
 
 // Stats on hash
-app.get(/([a-zA-Z0-9]{6})\+/, function(req, res) {
+app.get(/([a-zA-Z0-9]{6})\+$/, function(req, res) {
     routes.stats(req, res, req.params[0])
 });
 
