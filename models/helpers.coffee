@@ -6,7 +6,6 @@ exports.setCreated = (next) ->
   created = @emit 'get', 'created'
   if not created
     now = exports.getUtcNow()
-    console.log "Forcing created: #{now} #{@}"
     @created = now
   next()
 
