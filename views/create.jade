@@ -1,6 +1,9 @@
 h1= title
 
-form(method='post', action='create')
+if (typeof error !== 'undefined')
+  span(class='error')= error
+
+form(method='post', action='/')
   fieldset
      input(type='text', name='url')
      input(type='submit', value='Create')
