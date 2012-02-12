@@ -6,7 +6,10 @@ HitStat = new Schema
   url_id: Schema.ObjectId
   value:
     count: Number,
-    dates: Array
+    dates: [
+      created: Date,
+      count: Number
+    ]
 
 module.exports = mongoose.model 'HitStat', HitStat
 
