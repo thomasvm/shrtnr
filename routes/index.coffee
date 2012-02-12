@@ -30,8 +30,9 @@ exports.stats = (req, res, hash) ->
     return render_error res, "URL does not exist [#{hash}]" if err or not shorturl
 
     HitStat.findOne _id: shorturl._id, (err, doc) ->
-      res.write "stats #{doc.value.count}"
-      res.end()
+      res.render "stats",
+        title: "Statistics",
+        shorturl: shorturl, stat: doc
 
 exports.redirect = (req, res, hash) ->
   ShortURL.findOne hash: hash, (err, doc) ->

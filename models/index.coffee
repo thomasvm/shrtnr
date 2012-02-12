@@ -1,5 +1,9 @@
 mongoose = require "mongoose"
-mongoose.connect "mongodb://localhost/getshorty"
+
+if process.env.GETSHORTY_MONGODB_URL?
+  mongoose.connect process.env.GETSHORTY_MONGODB_URL
+else
+  mongoose.connect "mongodb://localhost/getshorty"
 
 exports.ShortURL = require "./ShortURL"
 exports.Hit      = require "./Hit"

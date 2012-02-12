@@ -11,5 +11,8 @@ HitStat = new Schema
       count: Number
     ]
 
+HitStat.methods.formatDateString = (date) ->
+  return "#{date.getFullYear()}-#{date.getMonth()}-#{date.getDate()}"
+
 module.exports = mongoose.model 'HitStat', HitStat
 
