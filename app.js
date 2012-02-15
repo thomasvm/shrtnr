@@ -6,7 +6,8 @@
 require("coffee-script");
 var express = require('express')
   , routes = require('./routes')
-  , models = require('./models');
+  , models = require('./models')
+  , middleware = require('./middleware');
 
 var app = module.exports = express.createServer();
 var ShortURL = models.ShortURL;
@@ -15,9 +16,11 @@ var ShortURL = models.ShortURL;
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
+  app.set('view options', { pretty: true });  
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(middleware.adderrors);
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
 });
@@ -32,10 +35,8 @@ app.configure('production', function(){
 
 // Routes
 //////////////
-app.get('/', routes.index);
-
-app.get('/create', routes.create);
-app.post('/create', routes.create_post); 
+app.get('/', routes.create);
+app.post('/', routes.create_post); 
 
 // redirect
 app.get(/([a-zA-Z0-9]{6})$/, function(req, res) {

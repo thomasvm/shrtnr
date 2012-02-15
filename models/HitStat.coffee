@@ -7,9 +7,12 @@ HitStat = new Schema
   value:
     count: Number,
     dates: [
-      date: Date,
-      count: 1
+      created: Date,
+      count: Number
     ]
+
+HitStat.methods.formatDateString = (date) ->
+  return "#{date.getFullYear()}-#{date.getMonth()}-#{date.getDate()}"
 
 module.exports = mongoose.model 'HitStat', HitStat
 
