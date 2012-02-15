@@ -9,6 +9,7 @@
 	, "mongoose": "latest"
   }
   , "devDependencies": {
-   	  "mocha": "latest"
+   	  "mocha": "latest",
+	  "should": "latest"
   }
 }
