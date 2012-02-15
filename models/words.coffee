@@ -7,5 +7,14 @@ module.exports = [
   "Chicago",
   "Falcone",
   "Forlenza",
-  "Cueno"
+  "Cueno",
+  "Hagen",
+  "Fabrizio",
+  "Rizzi",
+  "Louis",
+  "Zaluchi"
+  "TomHagen",
+  "DonVito"
+  "Barzini",
+  "Clemenza"
 ]
