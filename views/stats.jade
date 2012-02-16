@@ -1,11 +1,13 @@
 h1 Statistics
 
 a(href=shorturl.url, target='_blank')= shorturl.url
-div
-  strong Total hits: #{stat.value.count}
-
-div
-  ul
-    for d in stat.value.dates
-      li On #{stat.formatDateString(d.created)}: #{d.count} hits
-
+if stat
+  div
+    strong Total hits: #{stat.value.count}
+  
+  div
+    ul
+      for d in stat.value.dates
+        li On #{stat.formatDateString(d.created)}: #{d.count} hits
+else
+  div No hits yet.
