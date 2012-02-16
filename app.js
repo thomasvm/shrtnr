@@ -39,12 +39,12 @@ app.get('/', routes.create);
 app.post('/', routes.create_post); 
 
 // redirect
-app.get(/([a-zA-Z0-9]{6})$/, function(req, res) {
+app.get(/([a-zA-Z0-9_!]+)$/, function(req, res) {
     routes.redirect(req, res, req.params[0]);
 });
 
 // Stats on hash
-app.get(/([a-zA-Z0-9]{6})\+$/, function(req, res) {
+app.get(/([a-zA-Z0-9_!]+)\+$/, function(req, res) {
     routes.stats(req, res, req.params[0])
 });
 
