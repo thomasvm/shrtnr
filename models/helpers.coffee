@@ -1,4 +1,4 @@
-WORDS = require "./words"
+words = require "./words"
 
 exports.getUtcNow = ->
   now = new Date()
@@ -30,13 +30,13 @@ boringHash = (length= defaultLength) ->
 
 # Word Hashing 
 upOrDown = (letter) ->
-  f = random [String.prototype.toUpperCase, String.prototype.toLowerCase]
-  return f.apply letter
+  possibilities = [letter.toUpperCase(), letter.toLowerCase()]
+  return random possibilities
 
-wordHash = (words = WORDS)->
+wordHash = (wordList = words.list)->
   result = []
 
-  word = random words
+  word = random wordList
   result.push upOrDown(i) for i in word
  
   return result.join ""

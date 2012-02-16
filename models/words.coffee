@@ -1,4 +1,4 @@
-module.exports = [
+exports.list = [
   "Calzone",
   "Brando",
   "Torrio",
@@ -18,3 +18,7 @@ module.exports = [
   "Barzini",
   "Clemenza"
 ]
+
+exports.leet =
+  a: ['4'],
+  b: ['8']

@@ -22,7 +22,7 @@ describe 'helpers', ->
     describe 'calculate possibilities', ->
       it 'should be big enough', ->
         count = 0
-        for word in words
+        for word in words.list
           count += Math.pow 2, word.length
         count.should.be.above 1100
         console.log "It's #{count}"
