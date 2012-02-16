@@ -29,15 +29,19 @@ boringHash = (length= defaultLength) ->
   return result.join ""
 
 # Word Hashing 
-upOrDown = (letter) ->
-  possibilities = [letter.toUpperCase(), letter.toLowerCase()]
+toLeet = (letter, leet = words.leet) ->
+  possibilities = [ letter.toUpperCase(), letter.toLowerCase() ]
+
+  if leet[letter] != undefined
+    possibilities = possibilities.concat leet[letter]
+
   return random possibilities
 
 wordHash = (wordList = words.list)->
   result = []
 
   word = random wordList
-  result.push upOrDown(i) for i in word
+  result.push toLeet(i) for i in word
  
   return result.join ""
 
@@ -50,6 +54,8 @@ validateUrl = (url) ->
 exports.generateHash = boringHash
 
 exports.boringHash = boringHash
+
 exports.wordHash = wordHash
+exports.toLeet = toLeet
 
 exports.validateUrl = validateUrl
