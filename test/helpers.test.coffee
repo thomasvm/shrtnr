@@ -16,14 +16,57 @@ describe 'helpers', ->
         assert.notEqual 0, value.length
 
       it 'should be casing of value', ->
+        # disable leet
+        old = words.leet
+        words.leet = {}
+
+        # test
         value = helpers.wordHash(testWords)
         assert.equal value.toLowerCase(), testWords[0]
 
+        # reset leet
+        words.leet = old
+
     describe 'calculate possibilities', ->
-      it 'should be big enough', ->
+      describe 'without leet', ->
+        it "should be above 2400", ->
+          count = 0
+          for word in words.list
+            count += Math.pow 2, word.length
+
+          console.log "Its #{count}"
+          count.should.be.above 2400
+
+      describe "with leet", ->
+        it 'should be big enough', ->
+          count = 0
+          leet = words.leet
+
+          for word in words.list
+            wordCount = 1
+            # Loop words
+            for c in word
+              letterCount = 2
+              if leet[c]
+                letterCount += leet[c].length
+              # multiple with possibilities
+              wordCount *= letterCount
+            # add value for word
+            count += wordCount
+
+          console.log "It's #{count}"
+          count.should.be.above 40000
+
+  describe "#toLeet", ->
+    describe 'no leet', ->
+      it 'should return upper or lower', ->
+        value = helpers.toLeet('a', {})
+        ['a', 'A'].should.include value
+
+    describe 'with leet chars', ->
+      it 'should sometimes give extra value', ->
+        value = ''
         count = 0
-        for word in words.list
-          count += Math.pow 2, word.length
-        count.should.be.above 1100
-        console.log "It's #{count}"
+        value = helpers.toLeet 'a', { a: [ '4' ]} until value is '4' or count++ >= 50
+        value.should.equal '4'
         
