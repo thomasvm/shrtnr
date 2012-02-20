@@ -38,6 +38,10 @@ app.configure('production', function(){
 app.get('/', routes.create);
 app.post('/', routes.create_post); 
 
+app.get('/created/:hash', function(req, res) {
+ 	routes.created(req, res, req.params.hash);
+});
+
 // redirect
 app.get(/([a-zA-Z0-9_!]+)$/, function(req, res) {
     routes.redirect(req, res, req.params[0]);
