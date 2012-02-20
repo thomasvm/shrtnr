@@ -28,7 +28,7 @@ Hit.statics.generateHitStats = (id = null) ->
     # has to be inline: is deployed to mongodb
     findDate = (date) ->
       for d in result.dates
-        return d if d.created = date
+        return d if d.created.getTime() == date.getTime()
       return null
   
     for v in values
