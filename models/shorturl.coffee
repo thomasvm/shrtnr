@@ -4,7 +4,7 @@ Schema   = mongoose.Schema
 
 # URL ShortURL
 ShortURL = new Schema
-  hash:    String,
+  hash:    { type: String, unique: true },
   url:     String,
   created: Date
 ShortURL.pre 'save', helpers.setCreated
@@ -19,7 +19,6 @@ ShortURL.methods.generateHash = (callback) ->
     @hash = result
     callback()
 
-# URL Hit
 # Export items
 module.exports = mongoose.model 'ShortURL', ShortURL
 

@@ -3,7 +3,6 @@ Hit = require "./hit"
 Schema   = mongoose.Schema
 
 HitStat = new Schema
-  url_id: Schema.ObjectId
   value:
     count: Number,
     dates: [
@@ -12,7 +11,7 @@ HitStat = new Schema
     ]
 
 HitStat.methods.formatDateString = (date) ->
-  return "#{date.getFullYear()}-#{date.getMonth()}-#{date.getDate()}"
+  return "#{date.getFullYear()}-#{date.getMonth() + 1}-#{date.getDate()}"
 
 module.exports = mongoose.model 'HitStat', HitStat
 
