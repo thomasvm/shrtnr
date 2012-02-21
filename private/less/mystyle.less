@@ -1,7 +1,10 @@
 @import "_elements.less";
 
-@background-dark: #ebebeb;
 @light: #333333;
+@background-dark: #ebebeb;
+
+@accent1: #FF4342;
+@accent2: #88A65E;
 
 html {
     height: 100%;
@@ -31,10 +34,27 @@ input[type='text'] {
     width: 450px;
 }
 
-input.btn {
-    .rounded(10px);
-    padding: 5px;
-    background-color: @background-dark;
+input.btn { 
+   background: @accent1 url(/images/overlay-button.png) repeat-x 0 0; 
+   display: inline-block; 
+   padding: 7px 15px 9px; 
+   color: #fff !important; 
+   font-weight: bold; 
+   text-decoration: none; 
+   .rounded(10px);
+   text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+   position: relative; cursor:
+   pointer; overflow:
+   visible; width: auto; 
+}
+
+input.btn:hover {
+    background-color: #111; 
+    color: #fff; 
+}
+
+input.btn:hover { 
+   background-color: @accent1 - #333333; 
 }
 
 #content {
@@ -44,6 +64,8 @@ input.btn {
 
 #title {
     margin: 15px 0 15px 0;
+    color: @accent2;
+    font-size: 3em;
 }
 
 span.error {
