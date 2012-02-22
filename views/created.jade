@@ -1,0 +1,20 @@
+h1#title Thank you!
+
+p
+  | Thanks for letting us create
+  | a shorter URL for you. 
+  
+p 
+  | But what's keeping
+  | you here? C'mon, you should already be
+  | sharing this thing all over the place
+
+a(href=fullurl)= fullurl
+
+p
+  | But don't forget: you can come back later
+  | to the following URL to get a little summary
+  | of the hits it has been receiving. Basically
+  | it is your short URL followed by a <strong>+</strong>
+
+a(href="#{fullurl}+")  #{fullurl}+

@@ -7,6 +7,9 @@ render_error = (res, msg) ->
   res.errors.push msg
   return res.render 'error', errors: res.errors, title: "Error"
 
+getFullUrl = (req, doc) ->
+  return "http://#{req.header('host')}/#{doc.hash}"
+
 module.exports =
   index: (req, res) ->
     res.render 'index', title: 'Express'
@@ -32,7 +35,8 @@ module.exports =
 
       res.render 'created',
         title: "Created a short url",
-        shorturl: doc
+        shorturl: doc,
+        fullurl: getFullUrl req, doc
 
   stats: (req, res, hash) ->
     ShortURL.findOne hash: hash, (err, shorturl) ->
@@ -41,7 +45,9 @@ module.exports =
       HitStat.findOne _id: shorturl._id, (err, doc) ->
         res.render "stats",
           title: "Statistics",
-          shorturl: shorturl, stat: doc
+          shorturl: shorturl,
+          stat: doc,
+          fullurl: getFullUrl req, shorturl
 
   redirect: (req, res, hash) ->
     ShortURL.findOne hash: hash, (err, doc) ->
