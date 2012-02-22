@@ -5,6 +5,9 @@
 
 @accent1: #FF4342;
 @accent2: #88A65E;
+@accent3: #3EC8EF;
+@offset: #222222;
+
 
 html {
     height: 100%;
@@ -21,6 +24,14 @@ fieldset {
     border: 0px;
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: @accent3 - @offset;
+}
+
+a:hover {
+    color: @accent3;
 }
 
 input {
@@ -54,7 +65,7 @@ input.btn:hover {
 }
 
 input.btn:hover { 
-   background-color: @accent1 - #333333; 
+   background-color: @accent1 - @offset; 
 }
 
 #content {
@@ -65,11 +76,19 @@ input.btn:hover {
 #title {
     margin: 15px 0 15px 0;
     color: @accent2;
-    font-size: 3em;
+    font-size: 2.6em;
+}
+
+#title.accent3 {
+    color: @accent3;
 }
 
 span.error {
     color: red;
+}
+
+p strong {
+    color: @accent2;
 }
 
 @font-face {

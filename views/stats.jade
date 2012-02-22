@@ -1,10 +1,35 @@
-h1 Statistics
+h1#title.accent3 Statistics
 
 a(href=shorturl.url, target='_blank')= shorturl.url
+
+if !stat || stat.value.count === 0
+  p 
+    | Halas, that shortened URL hasn't been used yet. We
+    | encourage you to share the URL on Facebook, Twitter
+    | or any other sharing medium. C'mon, what are you waiting for?
+if stat.value.count == 1
+  p
+    | Here are some statistics on your shortened
+    | URL. We could do some fancy graph stuff, but
+    | for now we just tell you that your link
+    | has been clicked <strong>once</strong>. 
+    | Not a lot, we know you can do better.
+-if (stat.value.count >= 1)
+  - var dateCount = stat.value.dates.length;
+  p
+    | Here are some statistics on your shortened
+    | URL. We could do some fancy graph stuff, but
+    | for now we just tell you that your link
+    | has been clicked for <strong>#{stat.value.count} times</strong> 
+    | spread over <strong>#{dateCount === 1 ? "one day" : dateCount +" days." }</strong>
+
+p    
+  | We might add more statistics in the future, but for now
+  | this is all there is.
+
 if stat
   div
     strong Total hits: #{stat.value.count}
-  
   div
     ul
       for d in stat.value.dates

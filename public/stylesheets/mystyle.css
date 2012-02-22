@@ -16,6 +16,12 @@ fieldset {
   margin: 0;
   padding: 0;
 }
+a {
+  color: #1ca6cd;
+}
+a:hover {
+  color: #3ec8ef;
+}
 input {
   font: 1.2em "PTSerif", Helvetica, Arial;
   margin: 10px 0 10px 0;
@@ -54,7 +60,7 @@ input.btn:hover {
   color: #fff;
 }
 input.btn:hover {
-  background-color: #cc100f;
+  background-color: #dd2120;
 }
 #content {
   color: #333333;
@@ -63,10 +69,16 @@ input.btn:hover {
 #title {
   margin: 15px 0 15px 0;
   color: #88a65e;
-  font-size: 3em;
+  font-size: 2.6em;
+}
+#title.accent3 {
+  color: #3ec8ef;
 }
 span.error {
   color: red;
+}
+p strong {
+  color: #88a65e;
 }
 @font-face {
   font-family: 'PTSerif';
