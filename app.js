@@ -42,6 +42,8 @@ app.get('/created/:hash', function(req, res) {
  	routes.created(req, res, req.params.hash);
 });
 
+app.get('/words', routes.words);
+
 // redirect
 app.get(/([a-zA-Z0-9_!]+)$/, function(req, res) {
     routes.redirect(req, res, req.params[0]);

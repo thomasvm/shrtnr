@@ -2,6 +2,7 @@ models = require "../models"
 ShortURL = models.ShortURL
 Hit = models.Hit
 HitStat = models.HitStat
+Helpers = models.Helpers
 
 render_error = (res, msg) ->
   res.errors.push msg
@@ -62,4 +63,18 @@ module.exports =
 
         # redirect
         return res.redirect doc.url
+
+  words: (req, res) ->
+    words = require "../models/words"
+ 
+    examples = []
+    for x in [1..2]
+      word = Helpers.random words
+      wordHash = Helpers.wordHash word
+      examples.push wordHash
+
+    res.render "words",
+      title: "Words",
+      words: words.list,
+      examples: examples
     

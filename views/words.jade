@@ -1,0 +1,24 @@
+h1#title Words
+
+p
+  | What makes us different from other shortening
+  | services? Words!
+  
+p 
+  | That's right, we don't generate short URL
+  | with a random combination of <strong>lOw3er</strong> 
+  | or <strong>upp3rc4ase</strong> values. 
+  | No, we have a list of words that we
+  | use to generate shorter urls on certain topic, making
+  | our URL a lot more fun. As you can see, the words below
+  | have <strong>Godfather</strong> trilogy related terms.
+
+hr
+p= words.join(", ")
+hr
+
+h2 Some examples
+
+ul
+  for ex in examples
+    li= ex

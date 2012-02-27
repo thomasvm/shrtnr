@@ -59,3 +59,4 @@ exports.toLeet = WordHasher.toLeet
 
 exports.generateHash = WordHasher.hash
 exports.validateUrl = validateUrl
+exports.random = random
