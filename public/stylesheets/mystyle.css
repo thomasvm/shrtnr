@@ -71,7 +71,13 @@ input.btn:hover {
   color: #88a65e;
   font-size: 2.6em;
 }
-#title.accent3 {
+.accent1 {
+  color: #ff4342;
+}
+.accent2 {
+  color: #88a65e;
+}
+.accent3 {
   color: #3ec8ef;
 }
 span.error {
