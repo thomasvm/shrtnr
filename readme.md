@@ -22,6 +22,10 @@ So, for example,
 ## How to run?
 
 * Clone this repository
+* Install the needed packages using
+
+		npm install
+
 * Fire up mongodb on your local machine, or 
 
 		export GETSHORTY_MONGODB_URL=<your mongodb url> 
