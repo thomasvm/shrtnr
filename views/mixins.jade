@@ -1,0 +1,14 @@
+mixin menu(current)
+  ul#menu
+    if current !== '/'
+      mixin link(current, '/', 'home')
+    mixin link(current, '/words', 'words')
+    mixin link(current, '/about', 'about')
+      
+mixin link(current, url, title)
+  if current == url
+    li= title
+  else
+    li
+      a(href=url)= title 
+  

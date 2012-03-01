@@ -80,6 +80,18 @@ input.btn:hover {
 .accent3 {
   color: #3ec8ef;
 }
+#menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 5px;
+}
+#menu li {
+  display: inline;
+  margin-right: 15px;
+}
+#menu li a {
+  text-decoration: none;
+}
 span.error {
   color: red;
 }
