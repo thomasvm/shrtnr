@@ -48,6 +48,9 @@ app.get('/about', function(req, res) {
     res.render('about', { title: 'About' });
 });
 
+// api
+app.post('/api/create', routes.api.create);
+
 // redirect
 app.get(/([a-zA-Z0-9_!]+)$/, function(req, res) {
     routes.redirect(req, res, req.params[0]);

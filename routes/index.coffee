@@ -77,4 +77,33 @@ module.exports =
       title: "Words",
       words: words.list,
       examples: examples
+
+  api:
+    create: (req, res) ->
+      url = req.body.url
+      isUrl = models.Helpers.validateUrl url
+
+      if not isUrl
+        return res.json
+          status: "nok",
+          reason: "Provided values is not a URL"
+
+      shorturl = new ShortURL({ url: url })
+      shorturl.generateHash ->
+        shorturl.save (err, doc) ->
+          if err
+            return res.json
+              status: "nok",
+              reason: err
+
+          fullUrl = getFullUrl res, shorturl
+
+          res.json
+            status: "ok",
+            value:
+              hash: shorturl.hash,
+              shortUrl: fullUrl,
+              statUrl: "#{fullUrl}+",
+              url: url
+
     
