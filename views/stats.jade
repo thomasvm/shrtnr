@@ -1,5 +1,7 @@
 h1#title.accent3 Statistics
 
+if shorturl.title
+  div= shorturl.title
 a(href=shorturl.url, target='_blank')= shorturl.url
 
 if !stat || stat.value.count === 0

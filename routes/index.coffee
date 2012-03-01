@@ -29,6 +29,7 @@ module.exports =
     su.generateHash ->
       su.save ->
         res.redirect "/created/#{su.hash}"
+        su.fetchTitle()
 
   created: (req, res, hash) ->
     ShortURL.findOne hash: hash, (err, doc) ->
