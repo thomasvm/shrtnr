@@ -58,5 +58,5 @@ app.get(/([a-zA-Z0-9_!]+)\+$/, function(req, res) {
     routes.stats(req, res, req.params[0])
 });
 
-app.listen(process.env.port || 3000);
+app.listen(process.env['app_port'] || 3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
