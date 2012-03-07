@@ -12,14 +12,14 @@ if !stat || stat.value.count === 0
 
   a(href=fullurl)= fullurl
 
-if stat && stat.value.count == 1
+-if stat && stat.value.count == 1
   p
     | Here are some statistics on your shortened
     | URL. We could do some fancy graph stuff, but
     | for now we just tell you that your link
     | has been clicked <strong>once</strong>. 
     | Not a lot, we know you can do better.
--if (stat && stat.value.count >= 1)
+-if (stat && stat.value.count > 1)
   - var dateCount = stat.value.dates.length;
   p
     | Here are some statistics on your shortened
