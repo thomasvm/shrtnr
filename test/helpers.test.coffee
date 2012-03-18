@@ -1,6 +1,7 @@
 helpers = require "../models/helpers"
 words = require "../models/words"
 assert = require "assert"
+should = require "should"
 
 describe 'helpers', ->
   describe '#generateWord', ->
@@ -69,4 +70,14 @@ describe 'helpers', ->
         count = 0
         value = helpers.toLeet 'a', { a: [ '4' ]} until value is '4' or count++ >= 50
         value.should.equal '4'
+
+  describe "#validateUrl", ->
+    describe 'without protocol', ->
+      it 'should return null', ->
+        isValid = helpers.validateUrl "nodester.com"
+        should.not.exist isValid
+    describe 'with protocol', ->
+      it 'should return value', ->
+        isValid = helpers.validateUrl "http://nodester.com"
+        should.exist isValid
         
