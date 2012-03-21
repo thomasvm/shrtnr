@@ -73,11 +73,11 @@ describe 'helpers', ->
 
   describe "#validateUrl", ->
     describe 'without protocol', ->
-      it 'should return null', ->
+      it 'should return be false', ->
         isValid = helpers.validateUrl "nodester.com"
-        should.not.exist isValid
+        isValid.should.be.false
     describe 'with protocol', ->
-      it 'should return value', ->
+      it 'should return be true', ->
         isValid = helpers.validateUrl "http://nodester.com"
-        should.exist isValid
+        isValid.should.be.true
         
