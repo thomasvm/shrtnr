@@ -20,10 +20,15 @@ module.exports =
 
   create_post: (req, res) ->
     url = req.body.url
-    isUrl = models.Helpers.validateUrl url
 
-    if not isUrl
+    analyzed = models.Helpers.analyzeUrl url
+
+    if not analyzed.isUrl
       return res.render 'create', title: "Create", error: "Not a valid url"
+
+    # default to http if not present
+    if not analyzed.hasProtocol
+      url = "http://" + url
 
     su = new ShortURL url: url
     su.generateHash ->
