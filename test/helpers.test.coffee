@@ -80,4 +80,19 @@ describe 'helpers', ->
       it 'should return be true', ->
         isValid = helpers.validateUrl "http://nodester.com"
         isValid.should.be.true
+
+  describe "#analyzeUrl", ->
+    describe 'without protocol', ->
+      result = helpers.analyzeUrl "nodester.com"
+      it 'should be valid', ->
+        result.isUrl.should.be.true
+      it 'should indicate no protocol', ->
+        result.hasProtocol.should.be.false
+
+    describe 'with protocol', ->
+      result = helpers.analyzeUrl "http://nodester.com"
+      it 'should be valid', ->
+        result.isUrl.should.be.true
+      it 'should indicate protocol', ->
+        result.hasProtocol.should.be.true
         
