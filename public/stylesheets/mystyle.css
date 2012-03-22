@@ -6,7 +6,7 @@ html {
   height: 100%;
 }
 body {
-  background-color: #ebebeb;
+  background: #ebebeb url(/images/bgnoise_lg.png) repeat;
   font: 1.1em "PTSerif", Helvetica, Arial;
   width: 500px;
   margin: auto;
