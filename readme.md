@@ -1,4 +1,4 @@
-# getshorty
+# shrtnr
 
 ## What?
 Very simple node.js url shortenener created using
@@ -6,6 +6,7 @@ Very simple node.js url shortenener created using
 * coffee-script
 * express-js
 * mongoose
+* jade
 
 What makes this different from other Shortening services
 is that hash possibilities are taken from a set of predefined
