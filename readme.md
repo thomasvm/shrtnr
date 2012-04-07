@@ -8,7 +8,7 @@ Very simple node.js url shortenener created using
 * mongoose
 * jade
 
-The example is running at [shrtnr.nodester.com](shrtnr.nodester.com)
+The example is running at [shrtnr.nodester.com](http://shrtnr.nodester.com)
 
 What makes this different from other Shortening services
 is that hash possibilities are taken from a set of predefined
