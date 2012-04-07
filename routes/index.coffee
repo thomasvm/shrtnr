@@ -16,7 +16,7 @@ module.exports =
     res.render 'index', title: 'Express'
 
   create: (req, res) ->
-    res.render 'create', title: "Create"
+    res.render 'create', title: "home"
 
   create_post: (req, res) ->
     url = req.body.url
@@ -24,7 +24,7 @@ module.exports =
     analyzed = models.Helpers.analyzeUrl url
 
     if not analyzed.isUrl
-      return res.render 'create', title: "Create", error: "Not a valid url"
+      return res.render 'create', title: "home", error: "Not a valid url"
 
     # default to http if not present
     if not analyzed.hasProtocol
@@ -41,7 +41,7 @@ module.exports =
       return res.redirect '/' if err
 
       res.render 'created',
-        title: "Created a short url",
+        title: "success",
         shorturl: doc,
         fullurl: getFullUrl req, doc
 
@@ -51,7 +51,7 @@ module.exports =
 
       HitStat.findOne _id: shorturl._id, (err, doc) ->
         res.render "stats",
-          title: "Statistics",
+          title: "statistics",
           shorturl: shorturl,
           stat: doc,
           fullurl: getFullUrl req, shorturl
@@ -80,7 +80,7 @@ module.exports =
       examples.push wordHash
 
     res.render "words",
-      title: "Words",
+      title: "words",
       words: words.list,
       examples: examples
 
